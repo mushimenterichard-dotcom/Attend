@@ -1,0 +1,49 @@
+@page "/students"
+<h1>
+    Student
+</h1>
+<table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Date Of Birth</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+    @foreach(var student in students){
+         <tr>
+        <td>@student.Id</td>
+        <td>@student.Name</td>
+        <td>@student.Sex</td>
+        <td>@student.DateOfBirth</td>
+        <td>@student.Phone</td>
+        <td>@student.Email</td>
+    </tr>
+    }
+</table>
+
+@code{
+    public class Student
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Sex { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+    }
+    private List<Student> students = new List<Student>();
+    protected override void OnInitialized()
+    {
+        students = new List<Student>
+            {
+             new Student { Id = 1, Name = "Joy alliance", Sex = "Male", DateOfBirth = new DateTime(2000, 1, 1), Phone = "078-856-7890", Email ="alliance@gmail.com"},
+             new Student { Id = 2, Name = "fiston blackpaper", Sex = "Male", DateOfBirth = new DateTime(2001, 3, 12), Phone = "078-856-7890", Email ="blackpaper@gmail.com"},
+             new Student { Id = 3, Name = "rich wa rich", Sex = "Male", DateOfBirth = new DateTime(2002, 6, 15), Phone = "078-856-7890", Email ="Rich_wa_Rich@gmail.com"},
+             new Student { Id = 4, Name = "brossom mellisa", Sex = "Female", DateOfBirth = new DateTime(2005, 8, 21), Phone = "078-856-7890", Email ="brossom@gmail.com"} 
+            };
+
+    }
+
+}
