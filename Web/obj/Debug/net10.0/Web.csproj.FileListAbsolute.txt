@@ -88,3 +88,5 @@ C:\Users\Richard\My_Project\Attend\Web\bin\Debug\net10.0\Web.runtimeconfig.json
 C:\Users\Richard\My_Project\Attend\Web\bin\Debug\net10.0\Web.pdb
 C:\Users\Richard\My_Project\Attend\Web\obj\Debug\net10.0\Web.genruntimeconfig.cache
 C:\Users\Richard\My_Project\Attend\Web\obj\Debug\net10.0\ref\Web.dll
+C:\Users\Richard\My_Project\Attend\Web\bin\Debug\net10.0\Domain.dll
+C:\Users\Richard\My_Project\Attend\Web\bin\Debug\net10.0\Domain.pdb
