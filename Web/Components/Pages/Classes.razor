@@ -1,0 +1,43 @@
+@page "/classes"
+<h1>
+    Class
+</h1>
+<table>
+    <tr>
+    <th>IdClass</th>
+    <th>ClassName</th>
+    <th>InstructorName</th>
+    <th>ClassCode</th>
+    </tr>
+
+     @foreach(var classing in classed)
+        {
+    <tr>
+        <td>@classing.IdClass</td>
+        <td>@classing.ClassName</td>
+        <td>@classing.InstructorName</td>
+        <td>@classing.ClassCode</td>
+    </tr>
+    }
+</table>
+
+@code{
+    public class Classing
+    {
+        public int IdClass{ get;set; }
+        public string ClassName{ get;set; }
+        public string InstructorName{ get;set; }
+        public int ClassCode{ get;set; }
+    }
+
+    private List<Classing> classed = new List<Classing>();
+    protected override void OnInitialized()
+    {
+      classed = new List<Classing>
+        {
+            new Classing  { IdClass = 1 , ClassName = "College-level (AP / IB)" , InstructorName = "MELLISA uwase" , ClassCode = 001},
+            new Classing  { IdClass = 2 , ClassName = "Honors / Advanced" , InstructorName = "BIKORIMANA Louis" , ClassCode = 002}
+        };
+
+    }
+}
