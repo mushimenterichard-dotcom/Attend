@@ -1,4 +1,7 @@
 @page "/classes"
+@using Application.Services.ClassServices
+@using Domain.Entities
+@inject IClassService ClassService
 <h1>
     Class
 </h1>
@@ -22,22 +25,10 @@
 </table>
 
 @code{
-    public class Classing
-    {
-        public int IdClass{ get;set; }
-        public string ClassName{ get;set; }
-        public string InstructorName{ get;set; }
-        public int ClassCode{ get;set; }
-    }
-
+   
     private List<Classing> classed = new List<Classing>();
     protected override void OnInitialized()
     {
-      classed = new List<Classing>
-        {
-            new Classing  { IdClass = 1 , ClassName = "College-level (AP / IB)" , InstructorName = "MELLISA uwase" , ClassCode = 001},
-            new Classing  { IdClass = 2 , ClassName = "Honors / Advanced" , InstructorName = "BIKORIMANA Louis" , ClassCode = 002}
-        };
-
+        classed= ClassService.GetAllClasses();
     }
 }
