@@ -90,3 +90,5 @@ C:\Users\Richard\My_Project\Attend\Web\obj\Debug\net10.0\Web.genruntimeconfig.ca
 C:\Users\Richard\My_Project\Attend\Web\obj\Debug\net10.0\ref\Web.dll
 C:\Users\Richard\My_Project\Attend\Web\bin\Debug\net10.0\Domain.dll
 C:\Users\Richard\My_Project\Attend\Web\bin\Debug\net10.0\Domain.pdb
+C:\Users\Richard\My_Project\Attend\Web\bin\Debug\net10.0\Infrastructure.dll
+C:\Users\Richard\My_Project\Attend\Web\bin\Debug\net10.0\Infrastructure.pdb

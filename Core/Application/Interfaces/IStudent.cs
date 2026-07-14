@@ -1,7 +1,7 @@
 using Domain.Entities;
-namespace Application.Services.StudentServices
+namespace Application.Interfaces
 {
-    public interface IStudentService
+    public interface IStudent
     {
         public List<Student> GetAllStudents();
     }
