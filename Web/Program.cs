@@ -3,6 +3,7 @@ using Application.Services.ClassServices;
 using Application.Services.StudentServices;
 using Web.Components;
 using Infrastructure.Repositories;
+using Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,7 @@ builder.Services.AddScoped<IStudentService, StudentService>();
 
 builder.Services.AddScoped<IClassService, ClassService>();
 
-builder.Services.AddScoped<IStudent, StudentRepository>();
+builder.Services.AddInfrastructureService(builder.Configuration);
 
 var app = builder.Build();
 
