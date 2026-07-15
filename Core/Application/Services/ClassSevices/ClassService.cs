@@ -1,18 +1,20 @@
+using Application.Interfaces;
 using Domain.Entities;
 namespace Application.Services.ClassServices
 
 {
     public class ClassService:IClassService
     {
+         private readonly IClasses _classes;
+        public ClassService(IClasses classess)
+        {
+            _classes=classess;
+        }
         public List<Classing> GetAllClasses()
         {
-            return new List<Classing>
-            {
-                 new Classing  { IdClass = 1 , ClassName = "College-level (AP / IB)" , InstructorName = "MELLISA uwase" , ClassCode = 001},
-                 new Classing  { IdClass = 2 , ClassName = "Honors / Advanced" , InstructorName = "BIKORIMANA Louis" , ClassCode = 002}
-
-            };
+           return _classes.GetAllClasses();
         }
     }
+    
   
 }

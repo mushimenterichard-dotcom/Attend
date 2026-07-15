@@ -8,6 +8,8 @@ namespace Infrastructure.Data
         {
         }
         public DbSet<Student> Students{get;set;}
+        public DbSet<Classing> Classes{get;set;}
+
 
 
      }

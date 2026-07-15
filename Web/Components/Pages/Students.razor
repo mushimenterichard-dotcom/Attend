@@ -5,7 +5,8 @@
 <h1>
     Student
 </h1>
-<table>
+<table class="table">
+      <thead>
     <tr>
       <th>Id</th>
       <th>Name</th>
@@ -14,6 +15,7 @@
       <th>Phone</th>
       <th>Email</th>
     </tr>
+      </thead>
     @foreach(var student in students){
          <tr>
         <td>@student.Id</td>

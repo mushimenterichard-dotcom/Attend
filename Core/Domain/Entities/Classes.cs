@@ -3,9 +3,9 @@
 {
 public class Classing
     {
-        public int IdClass{ get;set; }
-        public string ClassName{ get;set; }
+        public int Id{ get;set; }
+        public string Name{ get;set; }
         public string InstructorName{ get;set; }
-        public int ClassCode{ get;set; }
+        public int Code{ get;set; }
     }
 }
