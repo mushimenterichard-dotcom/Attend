@@ -2,18 +2,16 @@
 {
     public class Attendances
     {
-        public int Id { get; set; }
-        public DateTime GetDateTime { get; set; }   
+         public int Id { get; set; }
+         public string InstructorName { get; set; }  
 
          //Prefic should match the Navigation property name
-         public int StudentId { get; set; }
-        public int ClassesId { get; set; }  
-
-
+        public int ClassingId { get; set; }  
 
               //Nagivation properties
-        public Student Student{ get; set;}
-        public Classing Classes{ get; set;}
+        public Classing Classing{ get; set;}
+
+        public ICollection<Student> Student { get;set; }
          
     } 
 }

@@ -8,7 +8,7 @@ namespace Domain.Entities
         public string Name { get; set; }
 
          //Navigation Property: One Education Level can have many Classes
-        public ICollection<Classing> classes { get;set;}
+        public ICollection<Classing> Classing { get;set;}
     } 
 }
  

@@ -1,6 +1,4 @@
-
 using System.Security.Cryptography.X509Certificates;
-
 namespace Domain.Entities
 {
 public class Classing

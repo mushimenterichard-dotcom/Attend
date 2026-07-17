@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Classing> classes { get;set; }
+        public ICollection<Classing> Classing { get;set; }
 
     } 
 }
