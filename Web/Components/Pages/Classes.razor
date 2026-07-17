@@ -7,19 +7,19 @@
 </h1>
 <table>
     <tr>
-    <th>IdClass</th>
-    <th>ClassName</th>
-    <th>InstructorName</th>
-    <th>ClassCode</th>
+    <th>Id</th>
+    <th>Education</th>
+    <th>Faculty</th>
+    <th>Name</th>
     </tr>
 
      @foreach(var classing in classed)
         {
     <tr>
         <td>@classing.Id</td>
+        <td>@classing.EducationLevelId</td>
+        <td>@classing.FacultyId</td>
         <td>@classing.Name</td>
-        <td>@classing.InstructorName</td>
-        <td>@classing.Code</td>
     </tr>
     }
 </table>

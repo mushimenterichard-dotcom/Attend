@@ -16,7 +16,14 @@ namespace Infrastructure.DependencyInjection
             services.AddScoped<IStudent, StudentRepository>();
 
             services.AddScoped<IClasses, ClassesRepository>();
-            
+
+            services.AddScoped<IAttendance, AttendanceRepository>();
+
+            services.AddScoped<IClassStudent, ClassStudentRepository>();
+
+            services.AddScoped<IEducationLevel, EducationLevelRepository>();
+
+
             return services;
         }
     }

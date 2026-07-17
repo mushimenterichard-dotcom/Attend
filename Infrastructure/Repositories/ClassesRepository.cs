@@ -1,17 +1,19 @@
 using Application.Interfaces;
 using Domain.Entities;
+using Infrastructure.Data;
 namespace Infrastructure.Repositories
 {
     public class ClassesRepository : IClasses
     {
+        private readonly ApplicationDbContext _dbcontext;
+        public ClassesRepository(ApplicationDbContext dbcontext)
+        {
+            _dbcontext= dbcontext;
+        }
+
         public List<Classing> GetAllClasses()
         {
-            return new List<Classing>
-            {
-            new Classing  { Id = 1 , Name = "College-level (AP / IB)" , InstructorName = "MELLISA uwase" , Code = 001},
-            new Classing  { Id = 2 , Name = "Honors / Advanced" , InstructorName = "BIKORIMANA Louis" , Code = 002}
-
-            };
+            return _dbcontext.Classes.ToList();
         }
     }
 }
