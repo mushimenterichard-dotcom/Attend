@@ -1,11 +1,14 @@
 @page "/classes"
 @using Application.Services.ClassServices
 @using Domain.Entities
+@inject NavigationManager Navigation
+
 @inject IClassService ClassService
 <h1>
     Class
 </h1>
-<table>
+<a class="btn btn-primary" href="/classes/add">Add Class</a>
+<table class="table table-striped">
     <tr>
     <th>Id</th>
     <th>Education</th>

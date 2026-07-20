@@ -14,6 +14,10 @@ namespace Application.Services.ClassServices
         {
            return _classes.GetAllClasses();
         }
+        public void AddClass(Classing classesss)
+        {
+            _classes.AddClass(classesss);
+        }
     }
     
   

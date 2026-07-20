@@ -35,6 +35,14 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Richard/My_Project/Attend/Web/Components/Pages/AddClasses.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRDbGFzc2VzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Richard/My_Project/Attend/Web/Components/Pages/AddStudent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRTdHVkZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Richard/My_Project/Attend/Web/Components/Pages/Classes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGFzc2VzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -53,6 +61,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Richard/My_Project/Attend/Web/Components/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3RGb3VuZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Richard/My_Project/Attend/Web/Components/Pages/StudentDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdHVkZW50RGV0YWlscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Richard/My_Project/Attend/Web/Components/Pages/Students.razor]

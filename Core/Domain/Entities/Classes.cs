@@ -6,10 +6,6 @@ public class Classing
         public int Id{ get;set; }
         public string Name{ get;set; }
 
-        public ICollection<ClassStudent> ClassStudent { get;set; }
-        public ICollection<Attendances> Attendance { get;set; }
-
-
         //Prefic should match the Navigation property name
          public int FacultyId{ get;set; }
         public int EducationLevelId{ get;set; }

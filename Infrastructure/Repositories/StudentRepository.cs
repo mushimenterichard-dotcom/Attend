@@ -15,5 +15,14 @@ namespace Infrastructure.Repositories
         {
             return _dbcontext.Students.ToList();
         }
+        public void AddStudent(Student student)
+        {
+            _dbcontext.Students.Add(student);
+            _dbcontext.SaveChanges();
+        }
+        public Student? GetStudentById(int id)
+        {
+             return _dbcontext.Students.FirstOrDefault(rr => rr.Id == id);
+        }
     }
 }

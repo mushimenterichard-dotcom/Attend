@@ -1,0 +1,42 @@
+@using Application.Services.ClassServices
+@using Domain.Entities
+@using Infrastructure.Migrations
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+@inject IClassService ClassService
+
+@page "/classes/add"
+<div>
+
+    <EditForm  Model="classesss" OnValidSubmit="SaveClass">
+        <h1>Add New class</h1>
+
+        <div class="form-group">
+            <label for="name" >Name:</label>
+            <InputText class="form-control" id="name" @bind-Value="classesss.Name"/>
+        </div>
+
+        <div class="form-group">
+            <label for="facultyId" >Faculty Id:</label>
+            <InputNumber id="facultyId" class="form-control" @bind-Value="classesss.FacultyId"/>
+        </div>
+
+        <div class="form-group">
+            <label for="educationLevelId" >Education Level Id:</label>
+            <InputNumber id="educationLevelId" class="form-control" @bind-Value="classesss.EducationLevelId"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </EditForm>
+</div>
+
+
+@code{
+    private Classing classesss = new  ();
+    private void SaveClass()
+    {
+        ClassService.AddClass(classesss);
+
+        Navigation.NavigateTo("/classes");
+    }
+}

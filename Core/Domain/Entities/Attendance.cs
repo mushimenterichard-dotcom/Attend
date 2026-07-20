@@ -10,8 +10,6 @@
 
               //Nagivation properties
         public Classing Classing{ get; set;}
-
-        public ICollection<Student> Student { get;set; }
          
     } 
 }

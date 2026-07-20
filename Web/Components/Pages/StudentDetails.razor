@@ -1,0 +1,69 @@
+@page "/students/{id:int}"
+@using Application.Services.StudentServices 
+@using Domain.Entities
+@inject IStudentService StudentService
+
+<h3 class="form-label" >Student Details </h3>
+<a href="/students" class="btn btn-secondary">Back to List</a>
+<div>
+    <div class="form-group" >
+        <label class="form-label" >Id:</label>
+        <small class="form-text" >@student.Id</small>
+    </div>
+    <div class="form-group" >
+         <label class="form-label" >Name:</label>
+        <small class="form-text" >@student.Name</small>
+    </div>
+
+    <div class="form-group" >
+        <label class="form-label" >Reg Number:</label>
+        <small class="form-text" >@student.Reg_Number</small>
+    </div>
+
+    <div class="form-group" >
+        <label class="form-label" >Date Of Birth:</label>
+        <small class="form-text" >@student.DateOfBirth</small>
+    </div>
+
+    <div class="form-group" >
+        <label class="form-label" >Address:</label>
+        <small class="form-text" >@student.Address</small>
+    </div>
+
+    <div class="form-group" >
+        <label class="form-label" >Parent Name:</label>
+        <small class="form-text" >@student.Parent_Name</small>
+    </div>
+
+    <div class="form-group" >
+        <label class="form-label" >Parent Phone:</label>
+        <small class="form-text" >@student.Parent_Phone</small>
+    </div>
+
+    <div class="form-group" >
+        <label class="form-label" >Phone:</label>
+        <small class="form-text" >@student.Phone</small>
+    </div>
+
+    <div class="form-group" >
+        <label class="form-label" >Email:</label>
+        <small class="form-text" >@student.Email</small>
+    </div>
+
+    <div class="form-group" >
+        <label class="form-label" >Sex:</label>
+        <small class="form-text" >@student.Sex</small>
+    </div>
+</div>
+@code{
+    [Parameter] 
+    public int Id{get;set;}
+    private Student? student;
+    protected override void OnParametersSet()
+    {
+        student = StudentService.GetStudentById(Id);
+    }
+
+
+
+}
