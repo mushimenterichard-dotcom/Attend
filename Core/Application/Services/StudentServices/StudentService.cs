@@ -1,5 +1,5 @@
+using Application.DTOs;
 using Application.Interfaces;
-using Domain.Entities;
 namespace Application.Services.StudentServices
 
 {
@@ -10,24 +10,24 @@ namespace Application.Services.StudentServices
         {
             _student=student;
         }
-        public List<Student> GetAllStudents()
+        public List<GetStudentDTO> GetAllStudents()
         {
            return _student.GetAllStudents();
         }
-        public void AddStudent(Student student)
+        public void AddStudent(AddStudentDTO student)
         {
             _student.AddStudent(student);
         }
-         public Student? GetStudentById(int id)
+         public GetStudentDTO? GetStudentById(int id)
         {
             return _student.GetStudentById(id);
         }
-        public void UpdateStudent(Student student)
+        public void UpdateStudent(UpdateStudentDTO student)
         {
             _student.UpdateStudent(student);
         } 
 
-        public void DeleteStudent(Student student)
+        public void DeleteStudent(DeleteStudentDTO student)
         {
             _student.DeleteStudent(student);
         }

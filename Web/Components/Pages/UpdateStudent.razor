@@ -1,6 +1,6 @@
 @page "/students/update/{id:int}"
 @using Application.Services.StudentServices
-@using Domain.Entities
+@using Application.DTOs
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
 @inject IStudentService StudentService
@@ -27,14 +27,34 @@
             <InputText id="address" class="form-control" @bind-Value="student.Address" />
         </div>
 
-            <div class="form-group">
+        <div class="form-group">
             <label for="phone">Parent Phone:</label>
             <InputText id="phone" class="form-control" @bind-Value="student.Parent_Phone" />
         </div>
 
         <div class="form-group">
+            <label for="parentName">Parent Name:</label>
+            <InputText id="parentName" class="form-control" @bind-Value="student.Parent_Name" />
+        </div>
+         
+        <div class="form-group">
+            <label for="regNumber">Reg Number:</label>
+            <InputText id="regNumber" class="form-control" @bind-Value="student.Reg_Number" />
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date Of Birth:</label>
+            <InputDate id="dob" class="form-control" @bind-Value="student.DateOfBirth" />
+        </div>
+
+        <div class="form-group">
             <label for="email">Email:</label>
             <InputText id="email" class="form-control" @bind-Value="student.Email" />
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <InputText id="phone" class="form-control" @bind-Value="student.Phone" />
         </div>
 
         <div class="form-group">
@@ -46,14 +66,23 @@
 @code{
     [Parameter]
     public int Id { get; set; }
-    private Student? ExistingStudent;
-    private Student student = new ();
+    private GetStudentDTO? ExistingStudent;
+    private UpdateStudentDTO student = new ();
     protected override void OnParametersSet()
     {
         ExistingStudent = StudentService.GetStudentById(Id);
         if (ExistingStudent != null)
         {
-            student = ExistingStudent;
+            student.Id = ExistingStudent.Id;
+            student.Name = ExistingStudent.Name;
+            student.Sex = ExistingStudent.Sex;
+            student.DateOfBirth = ExistingStudent.DateOfBirth;
+            student.Reg_Number = ExistingStudent.Reg_Number;
+            student.Address = ExistingStudent.Address;
+            student.Parent_Name = ExistingStudent.Parent_Name;
+            student.Parent_Phone = ExistingStudent.Parent_Phone;
+            student.Phone = ExistingStudent.Phone;
+            student.Email = ExistingStudent.Email;
         }
     }
     private void EditStudent()
@@ -61,7 +90,7 @@
         StudentService.UpdateStudent(student);
         Navigation.NavigateTo("/students");
     }
-
+@* 
       private void DeleteStudent()
     {
         if (student != null)
@@ -69,5 +98,5 @@
             StudentService.DeleteStudent(student);
             Navigation.NavigateTo("/students");
         }
-    }
+    } *@
 }
