@@ -1,0 +1,73 @@
+@page "/students/update/{id:int}"
+@using Application.Services.StudentServices
+@using Domain.Entities
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+@inject IStudentService StudentService
+
+<div>
+    <EditForm Model="student" OnValidSubmit="EditStudent">
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <InputText id="name" class="form-control" @bind-Value="student.Name" />
+        </div>
+
+        <div class="form-group">
+            <label for="sex">Sex:</label>
+            <InputSelect id="sex" class="form-control" @bind-Value="student.Sex">
+                <option value="">Select Sex</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </InputSelect>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <InputText id="address" class="form-control" @bind-Value="student.Address" />
+        </div>
+
+            <div class="form-group">
+            <label for="phone">Parent Phone:</label>
+            <InputText id="phone" class="form-control" @bind-Value="student.Parent_Phone" />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <InputText id="email" class="form-control" @bind-Value="student.Email" />
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update Student</button>
+        </div>
+    </EditForm>
+</div>
+
+@code{
+    [Parameter]
+    public int Id { get; set; }
+    private Student? ExistingStudent;
+    private Student student = new ();
+    protected override void OnParametersSet()
+    {
+        ExistingStudent = StudentService.GetStudentById(Id);
+        if (ExistingStudent != null)
+        {
+            student = ExistingStudent;
+        }
+    }
+    private void EditStudent()
+    {
+        StudentService.UpdateStudent(student);
+        Navigation.NavigateTo("/students");
+    }
+
+      private void DeleteStudent()
+    {
+        if (student != null)
+        {
+            StudentService.DeleteStudent(student);
+            Navigation.NavigateTo("/students");
+        }
+    }
+}

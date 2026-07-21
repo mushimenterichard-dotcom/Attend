@@ -32,7 +32,15 @@
         
         [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
-        
+
+        [Required(ErrorMessage = "Status is required")]
+        public string Status { get; set; } = "Active";
+
+        [Required(ErrorMessage = "UserAdded is required")]
+        public string UserAdded { get; set; }
+
+        [Required(ErrorMessage = "DateAdded is required")]
+        public DateTime DateAdded { get; set; } = DateTime.UtcNow; 
     } 
 }
  
