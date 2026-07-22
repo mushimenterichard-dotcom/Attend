@@ -1,5 +1,6 @@
 @using Application.Services.ClassServices
-@using Domain.Entities
+@using Application.DTOs
+@inject NavigationManager Navigation
 @using Infrastructure.Migrations
 @rendermode InteractiveServer
 @inject NavigationManager Navigation
@@ -25,14 +26,14 @@
             <label for="educationLevelId" >Education Level Id:</label>
             <InputNumber id="educationLevelId" class="form-control" @bind-Value="classesss.EducationLevelId"/>
         </div>
-
+        
         <button type="submit" class="btn btn-primary">Save</button>
     </EditForm>
 </div>
 
 
 @code{
-    private Classing classesss = new  ();
+    private AddClassDTO classesss = new  ();
     private void SaveClass()
     {
         ClassService.AddClass(classesss);

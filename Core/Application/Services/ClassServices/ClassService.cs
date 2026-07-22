@@ -1,5 +1,5 @@
 using Application.Interfaces;
-using Domain.Entities;
+using Application.DTOs;
 namespace Application.Services.ClassServices
 
 {
@@ -10,13 +10,17 @@ namespace Application.Services.ClassServices
         {
             _classes=classess;
         }
-        public List<Classing> GetAllClasses()
+        public List<GetClassDTO> GetAllClasses()
         {
            return _classes.GetAllClasses();
         }
-        public void AddClass(Classing classesss)
+        public void AddClass(AddClassDTO classesss)
         {
             _classes.AddClass(classesss);
+        }
+        public GetClassDTO? GetClassById(int id)
+        {
+            return _classes.GetClassById(id);
         }
     }
     

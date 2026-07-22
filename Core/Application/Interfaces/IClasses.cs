@@ -1,9 +1,10 @@
-using Domain.Entities;
+using Application.DTOs;
 namespace Application.Interfaces
 {
     public interface IClasses
     {
-        public List<Classing> GetAllClasses();
-        public void AddClass(Classing classesss);
+        public List<GetClassDTO> GetAllClasses();
+        public void AddClass(AddClassDTO classesss);
+        public GetClassDTO? GetClassById(int id);
     }
 }

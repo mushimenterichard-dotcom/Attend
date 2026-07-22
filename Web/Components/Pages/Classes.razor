@@ -1,6 +1,6 @@
 @page "/classes"
 @using Application.Services.ClassServices
-@using Domain.Entities
+@using Application.DTOs
 @inject NavigationManager Navigation
 
 @inject IClassService ClassService
@@ -14,22 +14,26 @@
     <th>Education</th>
     <th>Faculty</th>
     <th>Name</th>
+    <th>Status</th>
     </tr>
 
-     @foreach(var classing in classed)
+     @foreach(var classess in classed)
         {
     <tr>
-        <td>@classing.Id</td>
-        <td>@classing.EducationLevelId</td>
-        <td>@classing.FacultyId</td>
-        <td>@classing.Name</td>
+        <td>@classess.Id</td>
+        <td>@classess.EducationLevelId</td>
+        <td>@classess.FacultyId</td>
+        <td>@classess.Name</td>
+        <td>@classess.Status</td>
+
+    <td><a href="/classes/@classess.Id" class="btn btn-primary" >View Details</a></td>
     </tr>
     }
 </table>
 
 @code{
    
-    private List<Classing> classed = new List<Classing>();
+    private List<GetClassDTO> classed = new List<GetClassDTO>();
     protected override void OnInitialized()
     {
         classed= ClassService.GetAllClasses();

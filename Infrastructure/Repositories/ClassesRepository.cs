@@ -1,6 +1,7 @@
 using Application.Interfaces;
-using Domain.Entities;
+using Application.DTOs;
 using Infrastructure.Data;
+using Domain.Entities;
 namespace Infrastructure.Repositories
 {
     public class ClassesRepository : IClasses
@@ -11,14 +12,45 @@ namespace Infrastructure.Repositories
             _dbcontext= dbcontext;
         }
 
-        public List<Classing> GetAllClasses()
+        public List<GetClassDTO> GetAllClasses()
         {
-            return _dbcontext.Classes.ToList();
+          return _dbcontext.Classes.Select(c => new GetClassDTO
+            {
+                Id = c.Id,
+                Name = c.Name,
+                FacultyId = c.FacultyId,
+                EducationLevelId = c.EducationLevelId,
+                Status = c.Status,
+                UserAdded = c.UserAdded,
+                DateAdded = c.DateAdded, 
+
+            }).ToList();
         }
-        public void AddClass(Classing classesss)
+        public void AddClass(AddClassDTO classesss)
         {
-            _dbcontext.Classes.Add(classesss);
+            _dbcontext.Classes.Add(new Classing
+            {
+                Name = classesss.Name,
+                FacultyId = classesss.FacultyId,
+                EducationLevelId = classesss.EducationLevelId,
+                UserAdded = "Admin",
+                DateAdded = DateTime.UtcNow,
+                Status = "Active"
+            });
             _dbcontext.SaveChanges();
+        }
+        public GetClassDTO? GetClassById(int id)
+        {
+             return _dbcontext.Classes.Where(c => c.Id == id).Select(c => new GetClassDTO
+             {
+                 Id = c.Id,
+                 Name = c.Name,
+                 FacultyId = c.FacultyId,
+                 EducationLevelId = c.EducationLevelId,
+                 Status = c.Status,
+                 UserAdded = c.UserAdded,
+                 DateAdded = c.DateAdded
+             }).FirstOrDefault();
         }
     }
 }
