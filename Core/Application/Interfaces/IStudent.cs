@@ -4,10 +4,10 @@ namespace Application.Interfaces
 {
     public interface IStudent
     {
-        public List<GetStudentDTO> GetAllStudents();
-        public void AddStudent(AddStudentDTO student);
-        public GetStudentDTO? GetStudentById(int id);
-        public void UpdateStudent(UpdateStudentDTO student);
-        public void DeleteStudent(DeleteStudentDTO student);
+        Task <List<GetStudentDTO>> GetAllStudentsAsync();
+        Task AddStudentAsync(AddStudentDTO student);
+        Task <GetStudentDTO?> GetStudentByIdAsync(int id);
+        Task UpdateStudentAsync(UpdateStudentDTO student);
+        Task DeleteStudentAsync(DeleteStudentDTO student);
     }
 }

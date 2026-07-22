@@ -6,7 +6,7 @@
 @inject IStudentService StudentService
 
 <div>
-    <EditForm Model="student" OnValidSubmit="EditStudent">
+    <EditForm Model="student" OnValidSubmit="EditStudentAsync">
 
         <div class="form-group">
             <label for="name">Name:</label>
@@ -68,9 +68,9 @@
     public int Id { get; set; }
     private GetStudentDTO? ExistingStudent;
     private UpdateStudentDTO student = new ();
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
-        ExistingStudent = StudentService.GetStudentById(Id);
+        ExistingStudent = await StudentService.GetStudentByIdAsync(Id);
         if (ExistingStudent != null)
         {
             student.Id = ExistingStudent.Id;
@@ -85,9 +85,9 @@
             student.Email = ExistingStudent.Email;
         }
     }
-    private void EditStudent()
+    private async Task EditStudentAsync()
     {
-        StudentService.UpdateStudent(student);
+        await StudentService.UpdateStudentAsync(student);
         Navigation.NavigateTo("/students");
     }
 }

@@ -6,7 +6,7 @@
 @inject IStudentService StudentService
 
 <div class="container mt-5">
-    <EditForm Model="student" OnValidSubmit="RemoveStudent">
+    <EditForm Model="student" OnValidSubmit="RemoveStudentAsync">
         <div class="form-group">
         <label class="btn btn-danger">Are you sure you want to delete this student?</label>
         <button type="submit" class="btn btn-danger">Delete</button>
@@ -20,19 +20,19 @@
     public int Id { get; set; }
     private GetStudentDTO? ExistingStudent;
     private DeleteStudentDTO student = new ();
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
-        ExistingStudent = StudentService.GetStudentById(Id);
+        ExistingStudent = await StudentService.GetStudentByIdAsync(Id);
         if (ExistingStudent != null)
         {
-            student.Id = ExistingStudent.Id;
+         student.Id = ExistingStudent.Id;
         }
     }
-    private void RemoveStudent()
+    private async Task RemoveStudentAsync()
     {
         if (student != null)
         {
-            StudentService.DeleteStudent(student);
+           await StudentService.DeleteStudentAsync(student);
             Navigation.NavigateTo("/students");
         }
     }
