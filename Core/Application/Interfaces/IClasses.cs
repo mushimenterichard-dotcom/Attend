@@ -6,5 +6,7 @@ namespace Application.Interfaces
         public List<GetClassDTO> GetAllClasses();
         public void AddClass(AddClassDTO classesss);
         public GetClassDTO? GetClassById(int id);
+         public void UpdateClass(UpdateClassDTO classesss);
+        public void DeleteClass(DeleteClassDTO classesss);
     }
 }

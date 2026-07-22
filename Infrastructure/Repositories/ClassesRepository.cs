@@ -52,5 +52,25 @@ namespace Infrastructure.Repositories
                  DateAdded = c.DateAdded
              }).FirstOrDefault();
         }
+        public void UpdateClass(UpdateClassDTO classesss)
+        {
+            var existingClass = _dbcontext.Classes.Find(classesss.Id);
+            if (existingClass != null)
+            {
+                existingClass.Name = classesss.Name;
+                existingClass.FacultyId = classesss.FacultyId;
+                existingClass.EducationLevelId = classesss.EducationLevelId;
+                _dbcontext.SaveChanges();
+            }
+        }
+        public void DeleteClass(DeleteClassDTO classesss)
+        {
+           var existingClass = _dbcontext.Classes.FirstOrDefault(c => c.Id == classesss.Id);
+            if(existingClass != null)
+            {
+                existingClass.Status = "Deleted";
+                _dbcontext.SaveChanges();
+            }
+        }
     }
 }

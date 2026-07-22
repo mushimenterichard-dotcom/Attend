@@ -22,7 +22,14 @@ namespace Application.Services.ClassServices
         {
             return _classes.GetClassById(id);
         }
+        public void UpdateClass(UpdateClassDTO classesss)
+        {
+            _classes.UpdateClass(classesss);
+        }
+        public void DeleteClass(DeleteClassDTO classesss)
+        {
+            _classes.DeleteClass(classesss);
+        }
     }
     
-  
 }
