@@ -3,10 +3,10 @@ namespace Application.Services.ClassServices
 {
     public interface IClassService
     {
-        public List<GetClassDTO> GetAllClasses();
-        public void AddClass(AddClassDTO classesss);
-        public GetClassDTO? GetClassById(int id);
-        public void UpdateClass(UpdateClassDTO classesss);
-        public void DeleteClass(DeleteClassDTO classesss);
+        public Task <List<GetClassDTO>> GetAllClassesAsync();
+        Task AddClassAsync(AddClassDTO classesss);
+        Task <GetClassDTO?> GetClassByIdAsync(int id);
+        Task UpdateClassAsync(UpdateClassDTO classesss);
+        Task DeleteClassAsync(DeleteClassDTO classesss);
     }
 }

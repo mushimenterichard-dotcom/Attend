@@ -9,7 +9,7 @@
 @page "/classes/add"
 <div>
 
-    <EditForm  Model="classesss" OnValidSubmit="SaveClass">
+    <EditForm  Model="classesss" OnValidSubmit="SaveClassAsync">
         <h1>Add New class</h1>
 
         <div class="form-group">
@@ -34,9 +34,9 @@
 
 @code{
     private AddClassDTO classesss = new  ();
-    private void SaveClass()
+    private async Task SaveClassAsync()
     {
-        ClassService.AddClass(classesss);
+        await ClassService.AddClassAsync(classesss);
 
         Navigation.NavigateTo("/classes");
     }

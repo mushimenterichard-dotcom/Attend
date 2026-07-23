@@ -6,7 +6,7 @@
 @inject IClassService ClassService
 
 <div>
-    <EditForm Model="classesss" OnValidSubmit= "EditClass">
+    <EditForm Model="classesss" OnValidSubmit= "EditClassAsync">
         <div class="form-group">
             <label for="name">Name:</label>
             <InputText id="name" class="form-control" @bind-Value="classesss.Name" />
@@ -32,9 +32,9 @@
     public int Id { get; set; }
      private GetClassDTO? ExistingClass;
      private UpdateClassDTO classesss = new ();
-        protected override void OnParametersSet()
+        protected override async Task OnParametersSetAsync()
     {
-        ExistingClass = ClassService.GetClassById(Id);
+        ExistingClass = await ClassService.GetClassByIdAsync(Id);
         if (ExistingClass != null)
         {
             classesss.Id = ExistingClass.Id;
@@ -43,9 +43,9 @@
             classesss.EducationLevelId = ExistingClass.EducationLevelId;
         }
     }
-    private void EditClass()
+    private async Task EditClassAsync()
     {
-        ClassService.UpdateClass(classesss);
+        await ClassService.UpdateClassAsync(classesss);
         Navigation.NavigateTo("/classes");
     }
 }

@@ -34,8 +34,8 @@
 @code{
    
     private List<GetClassDTO> classed = new List<GetClassDTO>();
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        classed= ClassService.GetAllClasses();
+        classed = await ClassService.GetAllClassesAsync();
     }
 }

@@ -1,6 +1,5 @@
 @page "/students"
 @using Application.Services.StudentServices
-@using Domain.Entities
 @using Application.DTOs
 @inject NavigationManager Navigation
 @inject IStudentService StudentService
@@ -45,6 +44,6 @@
     private List<GetStudentDTO> students = new List<GetStudentDTO>();
     protected override async Task OnInitializedAsync()
     {
-        students= await StudentService.GetAllStudentsAsync();
+        students = await StudentService.GetAllStudentsAsync();
     }
 }

@@ -3,10 +3,10 @@ namespace Application.Interfaces
 {
     public interface IClasses
     {
-        public List<GetClassDTO> GetAllClasses();
-        public void AddClass(AddClassDTO classesss);
-        public GetClassDTO? GetClassById(int id);
-         public void UpdateClass(UpdateClassDTO classesss);
-        public void DeleteClass(DeleteClassDTO classesss);
+        Task <List<GetClassDTO>> GetAllClassesAsync();
+        Task AddClassAsync(AddClassDTO classesss);
+        Task <GetClassDTO?> GetClassByIdAsync(int id);
+        Task UpdateClassAsync(UpdateClassDTO classesss);
+        Task DeleteClassAsync(DeleteClassDTO classesss);
     }
 }
