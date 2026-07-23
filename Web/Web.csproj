@@ -10,7 +10,7 @@
 <!-- PackageReference -->
 
    <ItemGroup>
-
+  <PackageReference Include="MudBlazor" Version="9.6.0"/>
   <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.0"/>
   <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.0"/>
 
